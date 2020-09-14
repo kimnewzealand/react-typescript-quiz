@@ -10,7 +10,6 @@ type Props = {
 
 const QuestionCard: React.FC<Props> = ({ question, answers, callback, userAnswer, questionNr, totalQuestions }) => (
     <div>
-        <h2>Question Card</h2>
         <p className="number">Question: {questionNr}/{totalQuestions}</p>
         <p dangerouslySetInnerHTML={{ __html: question }} />
         <div>
