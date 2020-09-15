@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState } from 'react'
 
 import { fetchQuizQuestions } from './API'
 
@@ -7,6 +7,9 @@ import QuestionCard from './components/QuestionCard'
 
 //Types
 import { QuestionState, Difficulty } from './API'
+
+//Styles
+import { GlobalStyle, Wrapper } from './App.styles'
 
 const TOTAL_QUESTIONS = 10
 
@@ -68,29 +71,32 @@ const App = () => {
 
 
   return (
-    <div className="App">
-      <h1>React Quiz</h1>
-      {gameOver || userAnswers.length === TOTAL_QUESTIONS ? (
-        <button className="start" onClick={startTrivia}>
-          Start
-        </button>) : null}
-      {!gameOver ? <p className="score" >Score: {score}</p> : null}
-      {!loading && !gameOver && (
-        <QuestionCard
-          questionNr={number + 1}
-          totalQuestions={TOTAL_QUESTIONS}
-          question={questions[number].question}
-          answers={questions[number].answers}
-          userAnswer={userAnswers ? userAnswers[number] : undefined}
-          callback={checkAnswer}
-        />
-      )}
+    <>
+      <GlobalStyle />
+      <Wrapper>
+        <h1>React Quiz</h1>
+        {gameOver || userAnswers.length === TOTAL_QUESTIONS ? (
+          <button className="start" onClick={startTrivia}>
+            Start
+          </button>) : null}
+        {!gameOver ? <p className="score" >Score: {score}</p> : null}
+        {!loading && !gameOver && (
+          <QuestionCard
+            questionNr={number + 1}
+            totalQuestions={TOTAL_QUESTIONS}
+            question={questions[number].question}
+            answers={questions[number].answers}
+            userAnswer={userAnswers ? userAnswers[number] : undefined}
+            callback={checkAnswer}
+          />
+        )}
 
-      <button className="next" onClick={nextQuestion}>
-        Next
-      </button>
-    </div>
-  );
+        {!gameOver ? <button className="next" onClick={nextQuestion}>
+          Next
+        </button> :null }
+      </Wrapper>
+    </>
+  )
 }
 
 export default App;
