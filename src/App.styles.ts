@@ -31,18 +31,11 @@ export const Wrapper = styled.div`
 
     .score {
         color:#fff;
-        font-size : 1rem;
+        font-size : 2rem;
         margin:0;
     }
     > h1 {
-        background-image: linear-gradient(180deg,#fff,#ffcc91);
         background-size: 100%;
-        background-clip: text;
-        --webkit-ground-clip: text;
-        --webkit-text-fill-color: transparent;
-        --moz-ground-clip: text;
-        --moz-text-fill-color: transparent;
-        filter: drop-shadow (2px 2px #0085a3);
         font-size: 3rem;
         text-align: center;
         margin:20px;

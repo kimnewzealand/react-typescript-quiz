@@ -79,7 +79,7 @@ const App = () => {
           <button className="start" onClick={startTrivia}>
             Start
           </button>) : null}
-        {!gameOver ? <p className="score" >Score: {score}</p> : null}
+        {!gameOver ? <p className="score" >SCORE: {score}</p> : null}
         {!loading && !gameOver && (
           <QuestionCard
             questionNr={number + 1}
@@ -93,7 +93,7 @@ const App = () => {
 
         {!gameOver ? <button className="next" onClick={nextQuestion}>
           Next
-        </button> :null }
+        </button> : null}
       </Wrapper>
     </>
   )
